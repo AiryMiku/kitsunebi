@@ -1,0 +1,21 @@
+{
+  "name": "kitsunebi",
+  "version": "1.0.0",
+  "description": "A QQ Bot for FFXIV",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Maiko-Tan/kitsunebi.git"
+  },
+  "keywords": [
+    "QQBot"
+  ],
+  "author": "Maiko Tan <maiko.tan.coding@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "redis": "^2.8.0"
+  }
+}
