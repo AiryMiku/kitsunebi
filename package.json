@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Maiko-Tan/kitsunebi.git"
+    "url": "git+ssh://git@github.com/maiko-tan-coding/kitsunebi.git"
   },
   "keywords": [
     "QQBot"
