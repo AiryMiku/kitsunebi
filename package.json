@@ -2,9 +2,12 @@
   "name": "kitsunebi",
   "version": "1.0.0",
   "description": "A QQ Bot for FFXIV",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "start": "npx tsc & node .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "git push origin master"
   },
   "repository": {
     "type": "git",
@@ -16,6 +19,11 @@
   "author": "Maiko Tan <maiko.tan.coding@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "ws": "^7.2.1"
+  },
+  "devDependencies": {
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
   }
 }
