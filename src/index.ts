@@ -1,7 +1,15 @@
-const world = "world";
+import { Client } from "./client";
 
-export function hello (word: string = world) : string {
-    return `hello, ${word}`;
-}
+const ws = new Client('wss://echo.websocket.org/', {
+    origin: 'https://websocket.org'
+});
+ws.on('meta.ws.open', () => {
+    console.log('opened');
+    ws.send('this is a message');
+    setTimeout(() => {
+        ws.close();
+    }, 3000);
+});
 
-console.log(hello());
+
+ws.on('meta.ws.message', console.log);

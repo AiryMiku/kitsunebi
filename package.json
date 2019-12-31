@@ -1,13 +1,15 @@
 {
   "name": "kitsunebi",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A QQ Bot for FFXIV",
   "main": "./dist/index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx tsc & node .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "push": "git push origin master"
+    "start": "yarn run build && node .",
+    "test": "npx mocha -r ts-node/register ./test/**/*.ts",
+    "clean": "rm -rf ./dist/*",
+    "gitpush": "git push origin master",
+    "gitpull": "git pull origin master"
   },
   "repository": {
     "type": "git",
@@ -19,10 +21,17 @@
   "author": "Maiko Tan <maiko.tan.coding@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^13.1.1",
+    "@types/redis": "^2.8.14",
+    "@types/ws": "^6.0.4",
     "redis": "^2.8.0",
+    "winston": "^3.2.1",
     "ws": "^7.2.1"
   },
   "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "mocha": "^6.2.2",
+    "ts-node": "^8.5.4",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"
   }
