@@ -8,6 +8,7 @@
     "start": "yarn run build && node .",
     "test": "npx mocha -r ts-node/register ./test/**/*.ts",
     "clean": "rm -rf ./dist/*",
+    "lint": "npx tslint --project .",
     "gitpush": "git push origin master",
     "gitpull": "git pull origin master"
   },
@@ -24,6 +25,7 @@
     "@types/node": "^13.1.1",
     "@types/redis": "^2.8.14",
     "@types/ws": "^6.0.4",
+    "cac": "^6.5.3",
     "redis": "^2.8.0",
     "winston": "^3.2.1",
     "ws": "^7.2.1"
