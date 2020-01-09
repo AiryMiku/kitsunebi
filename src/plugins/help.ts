@@ -1,12 +1,12 @@
 import { Message } from "../model/message";
-import { IPlugin } from "../model/plugin";
+import { ICommandPlugin } from "../model/plugin";
 
 const help = (session: any, message: Message): boolean => {
 
     return true;
 };
 
-const obj: IPlugin = {
+const obj: ICommandPlugin = {
     command_name: "help",
     description: "help",
     name: "help",

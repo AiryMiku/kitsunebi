@@ -1,16 +1,14 @@
 interface IConfig {
     // server that kitsunebi to connect
-    host: string;
-    port: number;
+    address: string | URL;
 
     // configs about command
     command_start_character: string | string[];
 }
 
-const config = {
+const config: IConfig = {
+    address: "",
     command_start_character: ["/", "!"],
-    host: "",
-    port: 8080,
 };
 
 export {

@@ -1,7 +1,6 @@
 import Assert from "assert";
-
 import websocket from "ws";
-import { Client } from "../src/client";
+import { Client } from "../src/websocket/client";
 
 describe("websocket", () => {
 
@@ -87,6 +86,9 @@ describe("websocket", () => {
             });
             ws.on("meta.ws.message", (data: any) => {
                 Assert.deepEqual(JSON.parse(data), obj, "message lost");
+            });
+            ws.on("meta.message.json", (data: any) => {
+                Assert.deepEqual(data, obj, "json parse error");
                 ws.close();
             });
             ws.on("meta.ws.close", () => {

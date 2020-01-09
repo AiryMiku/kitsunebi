@@ -3,7 +3,7 @@ import { IUser } from "./user";
 export type MessageType = "text" | "at" | "image" | "audio" | "link" | "others";
 
 export interface IBaseMassage {
-    type: string;
+    type: MessageType;
     call_me: boolean;
     sender: IUser;
     raw?: any;
@@ -22,16 +22,32 @@ export interface IAtMessage extends IBaseMassage {
 
 export interface IImageMessage extends IBaseMassage {
     type: "image";
-    url?: string;
-    data?: BinaryType;
-    base64?: string;
+    url: string;
+}
+
+export interface IImageMessage extends IBaseMassage {
+    type: "image";
+    data: BinaryType;
+}
+
+export interface IImageMessage extends IBaseMassage {
+    type: "image";
+    base64: string;
 }
 
 export interface IAudioMessage extends IBaseMassage {
     type: "audio";
-    url?: string;
-    data?: BinaryType;
-    base64?: string;
+    url: string;
+}
+
+export interface IAudioMessage extends IBaseMassage {
+    type: "audio";
+    data: BinaryType;
+}
+
+export interface IAudioMessage extends IBaseMassage {
+    type: "audio";
+    base64: string;
 }
 
 export interface ILinkMessage extends IBaseMassage {

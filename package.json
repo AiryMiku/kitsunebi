@@ -2,13 +2,18 @@
   "name": "kitsunebi",
   "version": "0.0.1",
   "description": "A QQ Bot for FFXIV",
-  "main": "./dist/index.js",
+  "main": "./dist/kitsunebi.umd.js",
+  "module": "./dist/kitsunebi.es5.js",
+  "typings": "./dist/types/kitsunebi.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "npx tsc",
+    "build": "npx tsc --module commonjs && rollup -c rollup.config.ts",
     "start": "yarn run build && node .",
-    "test": "npx mocha -r ts-node/register ./test/**/*.ts",
+    "test": "TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} npx mocha -r ts-node/register ./test/**/*.ts",
     "clean": "rm -rf ./dist/*",
-    "lint": "npx tslint --project .",
+    "lint": "npx tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "gitpush": "git push origin master",
     "gitpull": "git pull origin master"
   },
@@ -22,17 +27,26 @@
   "author": "Maiko Tan <maiko.tan.coding@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^13.1.1",
-    "@types/redis": "^2.8.14",
-    "@types/ws": "^6.0.4",
     "cac": "^6.5.3",
+    "lodash": "^4.17.15",
     "redis": "^2.8.0",
     "winston": "^3.2.1",
     "ws": "^7.2.1"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-json": "^4.0.1",
+    "@rollup/plugin-node-resolve": "^6.1.0",
+    "@types/lodash.camelcase": "^4.3.6",
     "@types/mocha": "^5.2.7",
+    "@types/node": "^13.1.1",
+    "@types/redis": "^2.8.14",
+    "@types/ws": "^6.0.4",
+    "lodash.camelcase": "^4.3.0",
     "mocha": "^6.2.2",
+    "rollup": "^1.28.0",
+    "rollup-plugin-sourcemaps": "^0.5.0",
+    "rollup-plugin-typescript2": "^0.25.3",
     "ts-node": "^8.5.4",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"
